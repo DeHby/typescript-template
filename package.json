@@ -4,6 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
+    "release":"yarn --production",
     "dev": "nodemon ./src/index.ts",
     "build": "tsc",
     "start": "nodemon ./dist/index.js"
