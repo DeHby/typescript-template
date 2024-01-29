@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "allowJs": true,
     "incremental": true,
     "target": "es2022",
     "module": "commonjs",
@@ -32,7 +33,7 @@
     "emitDecoratorMetadata": true
   },
   "exclude": ["node_modules"],
-  "include": ["src/**/*.ts", "src/**/*.d.ts"],
+  "include": ["src/**/*.ts", "src/**/*.js", "src/**/*.d.ts"],
   "ts-node": {
     "transpileOnly": true,
     "files": true

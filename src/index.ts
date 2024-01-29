@@ -1,13 +1,11 @@
 ///////////////////////////////////////
 import * as dotenv from "dotenv";
-import { register } from "tsconfig-paths";
+import moduleAlias from "module-alias";
+
+moduleAlias.addAlias("@", __dirname);
 
 dotenv.config();
 
-const tsConfig: any = require("../tsconfig.json");
-register({
-  baseUrl: tsConfig.compilerOptions.baseUrl,
-  paths: tsConfig.compilerOptions.paths,
-});
+
 ////////////////////////////////////////
 console.log("Hello world!");
