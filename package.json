@@ -1,26 +1,27 @@
 {
-  "name": "Typescript-Project",
-  "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT",
-  "scripts": {
-    "release": "yarn --production",
-    "dev": "nodemon ./src/index.ts",
-    "build": "tsc",
-    "start": "ts-node ./dist/index.js",
-    "upgrade": "yarn upgrade-interactive --latest"
-  },
-  "dependencies": {
-    "module-alias": "^2.2.3",
-    "nodemon": "^3.0.1",
-    "ts-node": "^10.9.1",
-    "tsconfig-paths": "^4.2.0",
-    "typescript": "^5.2.2"
-  },
-  "devDependencies": {
-    "@types/dotenv": "^8.2.0",
-    "@types/module-alias": "^2.0.4",
-    "@types/node": "^20.5.7",
-    "tslib": "^2.5.0"
-  }
+    "name": "Typescript-Project",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT",
+    "scripts": {
+        "release": "yarn --production",
+        "dev": "nodemon ./src/index.ts",
+        "build": "tsc",
+        "start": "ts-node ./dist/index.js",
+        "upgrade": "yarn upgrade-interactive --latest",
+        "clean": "rmdir /s /q dist"
+    },
+    "dependencies": {
+        "module-alias": "^2.2.3",
+        "nodemon": "^3.0.1",
+        "ts-node": "^10.9.1",
+        "tsconfig-paths": "^4.2.0",
+        "typescript": "^5.2.2"
+    },
+    "devDependencies": {
+        "@types/dotenv": "^8.2.0",
+        "@types/module-alias": "^2.0.4",
+        "@types/node": "^20.5.7",
+        "tslib": "^2.5.0"
+    }
 }
