@@ -1,27 +1,29 @@
 {
-    "name": "Typescript-Project",
+    "name": "typescript_template",
     "version": "1.0.0",
     "main": "index.js",
     "license": "MIT",
+    "type": "module",
+    "engines": {
+        "node": ">=16"
+    },
     "scripts": {
         "release": "yarn --production",
-        "dev": "nodemon ./src/index.ts",
-        "build": "tsc",
-        "start": "ts-node ./dist/index.js",
+        "watch": "tsx watch --clear-screen=false ./src/index.ts",
+        "build": "yarn clean & tsc",
+        "dev": "yarn clean & tsc -w -preserveWatchOutput",
+        "type-check": "tsc --noEmit",
+        "start": "tsx ./dist/index.js",
         "upgrade": "yarn upgrade-interactive --latest",
-        "clean": "rmdir /s /q dist"
+        "clean": "if exist dist (rmdir /s /q dist)"
     },
     "dependencies": {
-        "module-alias": "^2.2.3",
-        "nodemon": "^3.0.1",
-        "ts-node": "^10.9.1",
-        "tsconfig-paths": "^4.2.0",
+        "dotenv": "^16.4.7",
+        "tsx": "^4.19.2",
         "typescript": "^5.2.2"
     },
     "devDependencies": {
         "@types/dotenv": "^8.2.0",
-        "@types/module-alias": "^2.0.4",
-        "@types/node": "^20.5.7",
-        "tslib": "^2.5.0"
+        "@types/node": "^22.10.5"
     }
 }

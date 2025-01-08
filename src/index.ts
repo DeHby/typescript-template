@@ -1,11 +1,4 @@
 ///////////////////////////////////////
-import * as dotenv from "dotenv";
-import moduleAlias from "module-alias";
-
-moduleAlias.addAlias("@", __dirname);
-
-dotenv.config();
-
-
+import "dotenv/config";
 ////////////////////////////////////////
-console.log("Hello world!");
+console.log("hello world!");
