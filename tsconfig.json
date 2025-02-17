@@ -2,19 +2,19 @@
     "compilerOptions": {
         "allowJs": true,
         "incremental": true,
-        "moduleResolution": "bundler",
+        "moduleResolution": "node",
         "target": "ES2024",
-        "module": "ESNext",
+        "module": "CommonJS",
         "lib": [
             "ES2024"
         ],
         "outDir": "./dist",
-        "moduleDetection": "force",
+        "moduleDetection": "auto",
         "resolveJsonModule": true,
         "isolatedModules": true,
         "removeComments": true,
-        "declaration": true,
         "strict": true,
+        "sourceMap": true,
         "strictNullChecks": true,
         "strictFunctionTypes": true,
         "strictBindCallApply": true,
@@ -22,7 +22,7 @@
         "noUnusedParameters": false,
         "noImplicitReturns": false,
         "noFallthroughCasesInSwitch": true,
-        "baseUrl": "src",
+        "baseUrl": "./src",
         "paths": {
             "*": [
                 "./*"
@@ -40,8 +40,8 @@
         "emitDecoratorMetadata": true
     },
     "include": [
-        "src/**/*.ts",
-        "src/**/*.js",
-        "src/**/*.d.ts"
-    ],
+        "./src/**/*.ts",
+        "./src/**/*.js",
+        "./src/**/*.d.ts"
+    ]
 }

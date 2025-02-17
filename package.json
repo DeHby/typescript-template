@@ -3,27 +3,30 @@
     "version": "1.0.0",
     "main": "index.js",
     "license": "MIT",
-    "type": "module",
+    "type": "commonjs",
     "engines": {
-        "node": ">=16"
+        "node": ">=20"
     },
     "scripts": {
         "release": "yarn --production",
-        "watch": "tsx watch --clear-screen=false ./src/index.ts",
-        "build": "yarn clean & tsc",
-        "dev": "yarn clean & tsc -w -preserveWatchOutput",
-        "type-check": "tsc --noEmit",
-        "start": "tsx ./dist/index.js",
+        "watch": "tsc -w",
+        "build:watch": "concurrently \"tsc -w\" \"tsc-alias -w\" --raw",
+        "rebuild": "yarn clean && yarn && build",
+        "build": "tsc && tsc-alias",
+        "start": "node -r dotenv/config ./dist/index",
         "upgrade": "yarn upgrade-interactive --latest",
-        "clean": "if exist dist (rmdir /s /q dist)"
+        "clean": "if exist dist (rmdir /s /q dist)",
+        "dev": "concurrently \"tsc -w\" \"tsc-alias -w\" \"node --watch -r dotenv/config ./dist/index\" --raw"
     },
     "dependencies": {
         "dotenv": "^16.4.7",
-        "tsx": "^4.19.2",
         "typescript": "^5.2.2"
     },
     "devDependencies": {
         "@types/dotenv": "^8.2.0",
-        "@types/node": "^22.10.5"
+        "@types/node": "^22.10.5",
+        "concurrently": "^9.1.2",
+        "tsc-alias": "^1.8.10",
+        "tsc-watch": "^6.2.1"
     }
 }
