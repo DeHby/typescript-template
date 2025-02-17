@@ -16,7 +16,7 @@
         "start": "node -r dotenv/config ./dist/index",
         "upgrade": "yarn upgrade-interactive --latest",
         "clean": "if exist dist (rmdir /s /q dist)",
-        "dev": "concurrently \"tsc -w\" \"tsc-alias -w\" \"node --watch -r dotenv/config ./dist/index\" --raw"
+        "dev": " tsc-watch --onSuccess \"yarn dev-command\""
     },
     "dependencies": {
         "dotenv": "^16.4.7",
