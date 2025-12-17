@@ -1,4 +1,7 @@
 {
     "typescript.tsdk": "node_modules\\typescript\\lib",
-    "prettier.requireConfig": false
+    "prettier.requireConfig": false,
+    "terminal.integrated.env.windows": {
+        "PKG_NODE_PATH": "${workspaceFolder}/node/node-v20.18.2-win-x86"
+    }
 }

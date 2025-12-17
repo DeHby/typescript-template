@@ -9,17 +9,20 @@
     },
     "scripts": {
         "release": "yarn --production",
+        "typecheck": "tsc --noEmit",
         "watch": "tsc -w",
         "build:watch": "concurrently \"tsc -w\" \"tsc-alias -w\" --raw",
         "rebuild": "yarn clean && yarn && build",
         "build": "tsc && tsc-alias",
         "start": "node -r dotenv/config ./dist/index",
         "upgrade": "yarn upgrade-interactive --latest",
-        "clean": "if exist dist (rmdir /s /q dist)",
+        "clean": "if exist dist rmdir /s /q dist && if exist bin rmdir /s /q bin",
         "dev-command": "tsc-alias && node -r dotenv/config ./dist/index",
-        "dev": " tsc-watch --onSuccess \"yarn dev-command\""
+        "dev": " tsc-watch --onSuccess \"yarn dev-command\"",
+        "build-bin": "yarn clean && yarn typecheck && esbuild src/index.ts --bundle --platform=node --target=node20 --format=cjs  --outfile=dist/app.js && node ./obfuscate.js && pkg ./dist/app.obf.js -t node20-windows-x86 -o ./bin/app.exe -C"
     },
     "dependencies": {
+        "@yao-pkg/pkg": "^6.11.0",
         "dotenv": "^16.4.7",
         "typescript": "^5.2.2"
     },
@@ -27,8 +30,10 @@
         "@types/dotenv": "^8.2.0",
         "@types/node": "^22.10.5",
         "concurrently": "^9.1.2",
+        "esbuild": "^0.27.2",
+        "javascript-obfuscator": "^5.1.0",
+        "prettier": "^3.7.4",
         "tsc-alias": "^1.8.10",
-        "tsc-watch": "^6.2.1",
-        "prettier": "^3.5.1"
+        "tsc-watch": "^6.2.1"
     }
 }
