@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "main": "index.js",
     "license": "MIT",
-    "type": "module",
+    "type": "commonjs",
     "engines": {
         "node": ">=24"
     },
@@ -14,7 +14,7 @@
         "start": "node --enable-source-maps -r dotenv/config ./dist/index",
         "upgrade": "yarn upgrade-interactive --latest",
         "clean": "node --eval \"import('node:fs').then(fs=>{fs.rmSync('dist',{recursive:true,force:true});fs.rmSync('node_modules/.cache/tsbuildinfo',{force:true})})\"",
-        "dev": "node --watch -r dotenv/config --import tsx src/index.ts",
+        "dev": "tsx watch -r dotenv/config src/index.ts",
         "typecheck": "tsc --noEmit"
     },
     "dependencies": {

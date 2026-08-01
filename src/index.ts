@@ -1,1 +1,1 @@
-console.log("hello world1!");
+console.log("hello,typescript 7.0!");

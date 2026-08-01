@@ -2,7 +2,6 @@
 
 ### 特性
 
-- 基于 **Node.js ESM** 模块体系开发
 - 使用 `ES2024` 作为目标语法标准
 - 使用 `TypeScript 7` 作为开发语言
 - 使用 `tsx` 提供开发环境 TypeScript 运行支持

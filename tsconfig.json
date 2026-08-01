@@ -6,10 +6,9 @@
     // Node 26 支持 ES2024
     "target": "ES2024",
     // ESM 输出
-    "module": "ESNext",
+    "module": "commonjs",
     // 现代 bundler 解析模式
     "moduleResolution": "bundler",
-
     "lib": ["ES2024"],
 
     // ===== 目录配置 =====
@@ -50,6 +49,7 @@
 
     // ===== 模块兼容 =====
     "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
 
     // ===== Decorator =====
     // NestJS / ORM 等需要
