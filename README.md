@@ -2,41 +2,124 @@
 
 ### 特性
 
+- 基于 **Node.js ESM** 模块体系开发
 - 使用 `ES2024` 作为目标语法标准
-- 使用 `node20` 的watch命令作为dev模式
-- 不使用任何第三方  `tsx/ts-node` 等工具作为依赖
-- 使用 `sourceMap` 作为调试基础（请不要禁用该编译选项）
-- 使用 `tsc-alias` 实现编译时处理 `tsconfig-paths`
-- 使用``Prettier``作为代码格式化工具,并附带一份常用配置
-- 使用``Dotenv``读取``.env``的自定义配置文件作为环境变量
-- 已配置好的vscode开发与调试环境
+- 使用 `TypeScript 7` 作为开发语言
+- 使用 `tsx` 提供开发环境 TypeScript 运行支持
+- 使用 `tsc-alias` 自动处理 `tsconfig paths` 路径别名
+- 支持 `@/*` 路径映射
+- 使用 `dotenv` 加载 `.env` 环境变量配置
+- 使用 `Prettier` 作为代码格式化工具
+- 已配置 VSCode 调试环境
 
-### 命令
 
-- release
-  
-  下载发行版包依赖
-- watch
-  
-  typescript 热更新模式
-- build:watch
-  
-  typescript 热更新模式以及完整的构建
-- rebuild
-  
-  清空残留文件重新完整构建
-- build
-  
-  构建代码
-- start
-  
-  启动项目
-- upgrade
-  
-  升级所有包依赖
-- clean
-  
-  清理构建的所有文件
-- dev
-  
-  启动热更新开发模式的项目
+## 命令
+
+### release
+
+安装生产环境依赖。
+
+```sh
+yarn release
+```
+
+---
+
+### dev
+
+启动开发模式。
+
+- 使用 Node.js 原生 `--watch` 实现热更新
+- 使用 `tsx` 运行 TypeScript 源码
+- 自动加载 `.env` 环境变量
+
+```sh
+yarn dev
+```
+
+---
+
+### typecheck
+
+执行 TypeScript 类型检查，不生成编译文件。
+
+```sh
+yarn typecheck
+```
+
+---
+
+### build
+
+构建项目。
+
+执行流程：
+
+```text
+TypeScript 编译
+        ↓
+生成 dist
+        ↓
+tsc-alias 处理路径别名
+```
+
+```sh
+yarn build
+```
+
+---
+
+### start
+
+启动构建后的项目。
+
+- 使用 dist 中的编译代码
+- 开启 sourceMap 支持
+- 加载 `.env` 环境变量
+
+```sh
+yarn start
+```
+
+---
+
+### rebuild
+
+清理旧构建文件，并重新执行完整构建。
+
+执行流程：
+
+```text
+clean
+ ↓
+build
+```
+
+```sh
+yarn rebuild
+```
+
+---
+
+### clean
+
+清理构建文件和 TypeScript 增量编译缓存。
+
+清理：
+
+- `dist`
+- `node_modules/.cache/tsbuildinfo`
+
+```sh
+yarn clean
+```
+
+---
+
+### upgrade
+
+交互式升级所有依赖。
+
+```sh
+yarn upgrade
+```

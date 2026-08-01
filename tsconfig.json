@@ -1,47 +1,93 @@
 {
-    "compilerOptions": {
-        "allowJs": true,
-        "incremental": true,
-        "moduleResolution": "node",
-        "target": "ES2024",
-        "module": "CommonJS",
-        "lib": [
-            "ES2024"
-        ],
-        "outDir": "./dist",
-        "moduleDetection": "auto",
-        "resolveJsonModule": true,
-        "isolatedModules": true,
-        "removeComments": true,
-        "strict": true,
-        "sourceMap": true,
-        "strictNullChecks": true,
-        "strictFunctionTypes": true,
-        "strictBindCallApply": true,
-        "strictPropertyInitialization": true,
-        "noUnusedParameters": false,
-        "noImplicitReturns": false,
-        "noFallthroughCasesInSwitch": true,
-        "baseUrl": "./src",
-        "paths": {
-            "*": [
-                "./*"
-            ],
-            "@/*": [
-                "./*"
-            ]
-        },
-        "types": [
-            "node"
-        ],
-        "allowSyntheticDefaultImports": true,
-        "esModuleInterop": true,
-        "experimentalDecorators": true,
-        "emitDecoratorMetadata": true
-    },
-    "include": [
-        "./src/**/*.ts",
-        "./src/**/*.js",
-        "./src/**/*.d.ts"
-    ]
+  "compilerOptions": {
+    // ===== 编译目标 =====
+    // 允许 JS 文件参与编译（纯 TS 可关闭）
+    "allowJs": true,
+    // Node 26 支持 ES2024
+    "target": "ES2024",
+    // ESM 输出
+    "module": "ESNext",
+    // 现代 bundler 解析模式
+    "moduleResolution": "bundler",
+
+    "lib": ["ES2024"],
+
+    // ===== 目录配置 =====
+    "rootDir": "./src",
+    "outDir": "./dist",
+
+    // ===== 编译优化 =====
+
+    // 增量编译
+    "incremental": true,
+    // 增量缓存
+    "tsBuildInfoFile": "./node_modules/.cache/tsbuildinfo",
+
+    // ===== 模块能力 =====
+    // 支持 JSON import
+    "resolveJsonModule": true,
+    // 支持独立文件编译（tsx/esbuild需要）
+    "isolatedModules": true,
+
+    // ===== 输出 =====
+    // 删除注释
+    "removeComments": true,
+    // 调试映射
+    "sourceMap": true,
+
+    // ===== 类型检查 =====
+    "strict": true,
+    // 参数未使用不报错
+    "noUnusedParameters": false,
+    // 不强制函数 return
+    "noImplicitReturns": false,
+    // switch 禁止穿透
+    "noFallthroughCasesInSwitch": true,
+
+    // ===== 类型环境 =====
+    // Node 类型
+    "types": ["node"],
+
+    // ===== 模块兼容 =====
+    "esModuleInterop": true,
+
+    // ===== Decorator =====
+    // NestJS / ORM 等需要
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+
+    // ===== 路径别名 =====
+
+    // @/* -> src/*
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+
+    /*
+      以下配置默认不需要，
+      有需求再开启：
+
+      "moduleDetection": "auto",
+
+      strict 已包含：
+      "strictNullChecks": true,
+      "strictFunctionTypes": true,
+      "strictBindCallApply": true,
+      "strictPropertyInitialization": true,
+
+      esModuleInterop 已包含：
+      "allowSyntheticDefaultImports": true
+    */
+  },
+
+  // ===== 编译范围 =====
+  "include": ["src"],
+
+  // ===== tsc-alias =====
+
+  // alias 转换 + ESM 补 .js
+  "tsc-alias": {
+    "resolveFullPaths": true,
+    "resolveFullExtension": ".js"
+  }
 }

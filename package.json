@@ -3,32 +3,30 @@
     "version": "1.0.0",
     "main": "index.js",
     "license": "MIT",
-    "type": "commonjs",
+    "type": "module",
     "engines": {
-        "node": ">=20"
+        "node": ">=24"
     },
     "scripts": {
         "release": "yarn --production",
-        "watch": "tsc -w",
-        "build:watch": "concurrently \"tsc -w\" \"tsc-alias -w\" --raw",
-        "rebuild": "yarn clean && yarn && build",
+        "rebuild": "yarn clean && yarn build",
         "build": "tsc && tsc-alias",
-        "start": "node -r dotenv/config ./dist/index",
+        "start": "node --enable-source-maps -r dotenv/config ./dist/index",
         "upgrade": "yarn upgrade-interactive --latest",
-        "clean": "if exist dist (rmdir /s /q dist)",
-        "dev-command": "tsc-alias && node -r dotenv/config ./dist/index",
-        "dev": " tsc-watch --onSuccess \"yarn dev-command\""
+        "clean": "node --eval \"import('node:fs').then(fs=>{fs.rmSync('dist',{recursive:true,force:true});fs.rmSync('node_modules/.cache/tsbuildinfo',{force:true})})\"",
+        "dev": "node --watch -r dotenv/config --import tsx src/index.ts",
+        "typecheck": "tsc --noEmit"
     },
     "dependencies": {
-        "dotenv": "^16.4.7",
-        "typescript": "^5.2.2"
+        "dotenv": "^17.4.2"
     },
     "devDependencies": {
-        "@types/dotenv": "^8.2.0",
-        "@types/node": "^22.10.5",
+        "@types/node": "^26.0.0",
         "concurrently": "^9.1.2",
+        "prettier": "^3.5.1",
         "tsc-alias": "^1.8.10",
-        "tsc-watch": "^6.2.1",
-        "prettier": "^3.5.1"
+        "tsc-watch": "^7.2.1",
+        "tsx": "^4.23.1",
+        "typescript": "^7.0.2"
     }
 }
