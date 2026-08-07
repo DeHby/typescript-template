@@ -1,0 +1,15 @@
+{
+    "entry": "src/index.ts",
+    "bundle": "dist/app.js",
+    "esbuild": [
+        "--target=node18",
+        "--external:electron",
+        "--external:./plugin/*"
+    ],
+    "pkg": {
+        "target": "node18-win-x86",
+        "nodeRuntime": "node-v18.20.2-win-x86",
+        "output": "./bin/app.exe",
+        "compress": "Brotli"
+    }
+}
