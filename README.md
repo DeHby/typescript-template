@@ -82,7 +82,7 @@ pnpm start
 
 ---
 
-### rebuild
+### build:re
 
 清理旧构建文件，并重新执行完整构建。
 
@@ -95,7 +95,7 @@ build
 ```
 
 ```sh
-pnpm rebuild
+pnpm build:re
 ```
 
 ---
