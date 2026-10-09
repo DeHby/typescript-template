@@ -10,7 +10,7 @@
 - 使用 `dotenv` 加载 `.env` 环境变量配置
 - 使用 `Prettier` 作为代码格式化工具
 - 已配置 VSCode 调试环境
-
+- 使用 pnpm 管理项目依赖
 
 ## 命令
 
@@ -19,7 +19,7 @@
 安装生产环境依赖。
 
 ```sh
-yarn release
+pnpm release
 ```
 
 ---
@@ -28,12 +28,12 @@ yarn release
 
 启动开发模式。
 
-- 使用 Node.js 原生 `--watch` 实现热更新
+- 使用 Node.js 原生 `--watch` 实现文件变更后的自动重启
 - 使用 `tsx` 运行 TypeScript 源码
 - 自动加载 `.env` 环境变量
 
 ```sh
-yarn dev
+pnpm dev
 ```
 
 ---
@@ -43,7 +43,7 @@ yarn dev
 执行 TypeScript 类型检查，不生成编译文件。
 
 ```sh
-yarn typecheck
+pnpm typecheck
 ```
 
 ---
@@ -63,7 +63,7 @@ tsc-alias 处理路径别名
 ```
 
 ```sh
-yarn build
+pnpm build
 ```
 
 ---
@@ -72,12 +72,12 @@ yarn build
 
 启动构建后的项目。
 
-- 使用 dist 中的编译代码
+- 使用 `dist` 中的编译代码
 - 开启 sourceMap 支持
 - 加载 `.env` 环境变量
 
 ```sh
-yarn start
+pnpm start
 ```
 
 ---
@@ -95,7 +95,7 @@ build
 ```
 
 ```sh
-yarn rebuild
+pnpm rebuild
 ```
 
 ---
@@ -110,7 +110,7 @@ yarn rebuild
 - `node_modules/.cache/tsbuildinfo`
 
 ```sh
-yarn clean
+pnpm clean
 ```
 
 ---
@@ -120,5 +120,6 @@ yarn clean
 交互式升级所有依赖。
 
 ```sh
-yarn upgrade
+pnpm upgrade
 ```
+
