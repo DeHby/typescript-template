@@ -3,7 +3,7 @@ const fs = require("fs");
 const path = require("path");
 
 const config = JSON.parse(
-  fs.readFileSync(path.resolve(__dirname, "../build/config.json"), "utf8")
+  fs.readFileSync(path.resolve(__dirname, "../pkg/config.json"), "utf8")
 );
 
 const green = "\x1b[32m";
@@ -50,13 +50,16 @@ function run(name, cmd) {
 
 console.log(`${gray}=== Build Binary ===${reset}`);
 
-run("Clean", "yarn clean");
+run("Clean", "pnpm clean");
 
-process.env.PKG_NODE_PATH = path.resolve(
-  __dirname,
-  "../build/pkg-node",
-  config.pkg.nodeRuntime
-);
+const nodeRuntime = path.resolve(config.pkg.nodeRuntime);
+
+if (!fs.existsSync(nodeRuntime)) {
+  console.error(`${red}✗ PKG_NODE_PATH does not exist: ${nodeRuntime}${reset}`);
+  process.exit(1);
+}
+
+process.env.PKG_NODE_PATH = nodeRuntime;
 
 run("Type Check", "tsc --noEmit");
 
