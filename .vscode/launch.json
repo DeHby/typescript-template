@@ -5,7 +5,7 @@
       "name": "debug",
       "type": "node",
       "request": "launch",
-      "program": "${workspaceRoot}/dist/index.js",
+      "program": "${workspaceRoot}/dist/js/index.js",
       "runtimeExecutable": "node",
       "runtimeArgs": ["--enable-source-maps", "-r", "dotenv/config"],
       "console": "internalConsole",
