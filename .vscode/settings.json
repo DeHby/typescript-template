@@ -1,3 +1,4 @@
 {
-    "prettier.requireConfig": false,
+  "prettier.requireConfig": false,
+  "js/ts.experimental.useTsgo": true
 }

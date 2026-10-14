@@ -3,8 +3,8 @@
         // ===== 编译目标 =====
         // 允许 JS 文件参与编译（纯 TS 可关闭）
         "allowJs": true,
-        // Node 26 支持 ES2024
-        "target": "ES2024",
+        // Node18:ES2022  Node20:ES2023
+        "target": "ES2022",
         // ESM 输出
         "module": "commonjs",
         // 现代 bundler 解析模式

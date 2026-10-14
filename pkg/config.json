@@ -1,10 +1,10 @@
 {
-    "entry": "src/index.ts",
+    "entry": "./dist/js/index.js",
     "bundle": "./dist/app.js",
     "esbuild": [
         "--target=node18",
         "--external:electron",
-        "--external:./plugin/*"
+        "--minify"
     ],
     "pkg": {
         "target": "node18-win-x86",

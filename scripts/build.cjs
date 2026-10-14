@@ -61,7 +61,14 @@ if (!fs.existsSync(nodeRuntime)) {
 
 process.env.PKG_NODE_PATH = nodeRuntime;
 
-run("Type Check", "tsc --noEmit");
+run("Compile", "pnpm build");
+
+const entry = path.resolve(config.entry);
+
+if (!fs.existsSync(entry)) {
+  console.error(`${red}✗ Entry file does not exist: ${entry}${reset}`);
+  process.exit(1);
+}
 
 run(
   "Bundle",
