@@ -3,6 +3,13 @@ declare global {
     interface ProcessEnv {
       a: string;
     }
+
+    interface Process {
+      pkg?: {
+        defaultEntrypoint?: string;
+        entrypoint?: string;
+      };
+    }
   }
 }
 export {};
