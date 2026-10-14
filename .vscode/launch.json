@@ -7,7 +7,7 @@
       "request": "launch",
       "program": "${workspaceRoot}/dist/js/index.js",
       "runtimeExecutable": "node",
-      "runtimeArgs": ["--enable-source-maps", "-r", "dotenv/config"],
+      "runtimeArgs": ["--enable-source-maps"],
       "console": "internalConsole",
       "preLaunchTask": "tsc: build"
     }

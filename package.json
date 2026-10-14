@@ -11,10 +11,10 @@
         "release": "pnpm install --prod",
         "build:re": "pnpm clean && pnpm build",
         "build": "tsc && tsc-alias",
-        "start": "node --enable-source-maps -r dotenv/config ./dist/js/index",
+        "start": "node --enable-source-maps ./dist/js/index",
         "upgrade": "pnpm up --interactive --latest",
         "clean": "node --eval \"import('node:fs').then(fs=>{fs.rmSync('dist/js',{recursive:true,force:true});fs.rmSync('node_modules/.cache/tsbuildinfo',{force:true})})\"",
-        "dev": "tsx watch -r dotenv/config src/index.ts",
+        "dev": "tsx watch src/index.ts",
         "typecheck": "tsc --noEmit",
         "build:bin": "node scripts/build.cjs"
     },
